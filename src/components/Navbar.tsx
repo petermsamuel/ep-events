@@ -6,11 +6,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -24,6 +20,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
+        {/* Logo */}
         <a href="#hero" className="text-2xl font-bold">
           <img 
             src="/lovable-uploads/E&P_events_lion_horizontal.svg" 
@@ -52,14 +49,24 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        {/* Desktop Navigation with right-aligned CTA */}
+        <div className="hidden md:flex items-center space-x-8">
           <a href="#what-we-do" className="text-black hover:text-gold transition-colors">What We Do</a>
           <a href="#featured" className="text-black hover:text-gold transition-colors">Featured In</a>
           <a href="#meet-peter" className="text-black hover:text-gold transition-colors">Meet Peter</a>
           <a href="#testimonials" className="text-black hover:text-gold transition-colors">Testimonials</a>
           <a href="#gallery" className="text-black hover:text-gold transition-colors">Gallery</a>
           <a href="#contact" className="text-black hover:text-gold transition-colors">Contact</a>
+
+          {/* Book a Call Button */}
+          <a
+            href="https://cal.com/eandp.events/clarity"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glow-button-inner"
+          >
+            Book a Call
+          </a>
         </div>
 
         {/* Mobile Navigation */}
@@ -107,6 +114,17 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
+              </a>
+
+              {/* Mobile Book a Call Button */}
+              <a
+                href="https://cal.com/ryanmcmullen/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glow-button-inner"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Book a Call
               </a>
             </div>
           </div>
